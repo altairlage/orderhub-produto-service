@@ -13,9 +13,18 @@ public class OrderhubExceptionHandler {
     public ResponseEntity<String> handleOrderhubException(OrderhubException ex) {
         if (ex instanceof br.com.orderhub.core.exceptions.ProdutoNaoEncontradoException) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
+
+        if (ex instanceof br.com.orderhub.core.exceptions.ProdutoJaExisteException) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
