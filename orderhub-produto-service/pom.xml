@@ -53,6 +53,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.38</version> <!-- Use the latest stable version -->
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -125,6 +126,13 @@
 			<version>1.0.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>11.10.4</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -132,13 +140,18 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
 				<configuration>
+					<source>21</source>
+					<target>21</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.38</version>
 						</path>
 					</annotationProcessorPaths>
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -152,6 +165,12 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>11.10.4</version>
 			</plugin>
 
 			<plugin>

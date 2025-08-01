@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "927cf186-04b7-40e5-86e9-194c34b2e0b0",
+		"name": "orderhub-produto-service",
+		"description": "Coleção de testes para a API de produtos com endpoints CRUD.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "843014",
+		"_collection_link": "https://medsched.postman.co/workspace/medsched-Workspace~8f6c7405-8f0f-4bfe-8c14-6bdd6fbabd3a/collection/843014-927cf186-04b7-40e5-86e9-194c34b2e0b0?action=share&source=collection_link&creator=843014"
+	},
+	"item": [
+		{
+			"name": "Listar Todos Produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/produtos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produto por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/produtos/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Produto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Produto Teste\",\n  \"descricao\": \"Descri\\u00e7\\u00e3o exemplo\",\n  \"preco\": 123.45,\n  \"quantidade\": 10\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/produtos/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produto por Nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/produtos/nome/Produto Teste",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos",
+						"nome",
+						"Produto Teste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Produto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 11,\n  \"nome\": \"Produto Atualizado\",\n  \"descricao\": \"Descri\\u00e7\\u00e3o atualizada\",\n  \"preco\": 200.0\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/produtos/11",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Produto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/produtos/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"produtos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

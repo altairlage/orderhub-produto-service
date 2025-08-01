@@ -18,13 +18,4 @@ public class ProdutoEntity {
     private String descricao;
     private Double preco;
 
-
-//    public ProdutoEntity(Long id, String nome, String descricao, Double preco) {
-//        this.id = id;
-//        this.nome = nome;
-//        this.descricao = descricao;
-//        this.preco = preco;
-//    }
-//
-//    public ProdutoEntity() {}
 }

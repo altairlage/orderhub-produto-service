@@ -1,16 +1,16 @@
 package br.com.orderhub.produto_service.adapter.controller;
 
 import br.com.orderhub.core.controller.ProdutoController;
-import br.com.orderhub.core.dto.CriarProdutoDTO;
-import br.com.orderhub.core.dto.ProdutoDTO;
-import br.com.orderhub.core.exceptions.ProdutoJaExisteException;
+import br.com.orderhub.core.dto.produtos.CriarProdutoDTO;
+import br.com.orderhub.core.dto.produtos.ProdutoDTO;
 import br.com.orderhub.core.exceptions.ProdutoNaoEncontradoException;
 import br.com.orderhub.produto_service.adapter.dto.ProdutoApiRequestDto;
 import br.com.orderhub.produto_service.adapter.dto.ProdutoApiResponseDto;
 import br.com.orderhub.produto_service.adapter.mapper.ProdutoApiDtoMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
@@ -25,7 +25,17 @@ public class ProdutoApiController {
     // Li um pouco e entendi que seria melhor ter DTOs separados para a camada da aplicação, pois caso os DTOs do core
     // mudem, a camada de aplicação nao quebra.
 
-    //falta o get all
+    @GetMapping()
+    public ResponseEntity<List<ProdutoApiResponseDto>> listarTodosProdutos() {
+        List<ProdutoDTO> produtos = produtoController.listarTodosProdutos();
+
+        List<ProdutoApiResponseDto> responses = produtos
+                .stream()
+                .map(ProdutoApiDtoMapper::produtoDtoToResponseDto)
+                .toList();
+
+        return ResponseEntity.ok(responses);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProdutoApiResponseDto> buscarProdutoPorId(@PathVariable Long id) {

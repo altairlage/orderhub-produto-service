@@ -1,8 +1,8 @@
 package br.com.orderhub.produto_service.adapter.controller;
 
 import br.com.orderhub.core.controller.ProdutoController;
-import br.com.orderhub.core.dto.CriarProdutoDTO;
-import br.com.orderhub.core.dto.ProdutoDTO;
+import br.com.orderhub.core.dto.produtos.CriarProdutoDTO;
+import br.com.orderhub.core.dto.produtos.ProdutoDTO;
 import br.com.orderhub.core.exceptions.ProdutoJaExisteException;
 import br.com.orderhub.core.exceptions.ProdutoNaoEncontradoException;
 import br.com.orderhub.produto_service.adapter.api.handler.OrderhubExceptionHandler;
@@ -18,16 +18,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;

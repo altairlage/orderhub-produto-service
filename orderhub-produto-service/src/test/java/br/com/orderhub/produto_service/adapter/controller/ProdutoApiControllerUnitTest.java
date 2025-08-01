@@ -1,8 +1,8 @@
 package br.com.orderhub.produto_service.adapter.controller;
 
 import br.com.orderhub.core.controller.ProdutoController;
-import br.com.orderhub.core.dto.CriarProdutoDTO;
-import br.com.orderhub.core.dto.ProdutoDTO;
+import br.com.orderhub.core.dto.produtos.CriarProdutoDTO;
+import br.com.orderhub.core.dto.produtos.ProdutoDTO;
 import br.com.orderhub.core.exceptions.ProdutoJaExisteException;
 import br.com.orderhub.core.exceptions.ProdutoNaoEncontradoException;
 import br.com.orderhub.produto_service.adapter.dto.ProdutoApiRequestDto;
