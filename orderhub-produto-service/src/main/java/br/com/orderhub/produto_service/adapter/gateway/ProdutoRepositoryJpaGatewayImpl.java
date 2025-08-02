@@ -8,6 +8,7 @@ import br.com.orderhub.produto_service.adapter.persistence.ProdutoEntity;
 import br.com.orderhub.produto_service.adapter.persistence.ProdutoRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -56,5 +57,12 @@ public class ProdutoRepositoryJpaGatewayImpl implements IProdutoGateway {
     @Override
     public void deletar(Long id) throws ProdutoNaoEncontradoException {
         produtoRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Produto> listarTodos() {
+        return produtoRepository.findAll()
+                .stream().map(ProdutoEntityMapper::entityToDomain)
+                .toList();
     }
 }
